@@ -1,4 +1,5 @@
-﻿using AppLogin.Libraries.Login;
+﻿using AppLogin.Libraries.Filtro;
+using AppLogin.Libraries.Login;
 using AppLogin.Models.Constants;
 using AppLogin.Repository.Contract;
 using Microsoft.AspNetCore.Mvc;
@@ -24,22 +25,11 @@ namespace AppLogin.Areas.Colaborador.Controllers
         {
             Models.Colaborador colaboradorDB = _repositoryColaborador.Login(colaborador.Email, colaborador.Senha);
 
-            if (colaboradorDB.Email != null &&
-                colaboradorDB.Senha != null &&
-                colaboradorDB.Tipo != ColaboradorTipoConstant.Comum)
+            if (colaboradorDB.Email != null && colaboradorDB.Senha != null)
             {
                 _loginColaborador.Login(colaboradorDB);
 
-                return new RedirectResult(Url.Action(nameof(PainelGerente)));
-            }
-
-            if (colaboradorDB.Email != null &&
-                colaboradorDB.Senha != null &&
-                colaboradorDB.Tipo != ColaboradorTipoConstant.Gerente)
-            {
-                _loginColaborador.Login(colaboradorDB);
-
-                return new RedirectResult(Url.Action(nameof(PainelComum)));
+                return new RedirectResult(Url.Action(nameof(Painel)));
             }
             else
             {
@@ -47,10 +37,12 @@ namespace AppLogin.Areas.Colaborador.Controllers
                 return View();
             }
         }
+        [ColaboradorAutorizacao]
         public IActionResult Index()
         {
             return View();
         }
+        /*
         public IActionResult PainelGerente()
         {
             ViewBag.Nome = _loginColaborador.GetColaborador().Nome;
@@ -65,11 +57,13 @@ namespace AppLogin.Areas.Colaborador.Controllers
             ViewBag.Email = _loginColaborador.GetColaborador().Email;
             return View();
         }
-
+        */
+        [ColaboradorAutorizacao]
         public IActionResult Painel()
         {
            return View();
         }
+        [ColaboradorAutorizacao]
         public IActionResult Logout()
         {
             _loginColaborador.logout();

@@ -30,4 +30,4 @@ VALUES
 INSERT INTO Colaborador
 (Nome, Email, Senha, Tipo)
 VALUES
-('Samuel', 'sammuel11@ .com', '12345678', 'admin');
+('Samuel', 'sammuel11@gmail.com', '12345678', 'admin');
