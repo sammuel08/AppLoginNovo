@@ -7,7 +7,7 @@ namespace AppLogin.Libraries.Filtro
 {
     public class ClienteAutorizacaoAttribute : Attribute, IAuthorizationFilter
     {
-        LoginCliente _loginCliente
+        LoginCliente _loginCliente;
         public void OnAuthorization(AuthorizationFilterContext context)
         {
             _loginCliente = (LoginCliente)context.HttpContext.RequestServices.GetService(typeof(LoginCliente));

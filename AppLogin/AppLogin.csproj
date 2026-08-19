@@ -7,14 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Colaborador\Views\NewFolder\**" />
+    <Content Remove="Areas\Colaborador\Views\NewFolder\**" />
+    <EmbeddedResource Remove="Areas\Colaborador\Views\NewFolder\**" />
+    <None Remove="Areas\Colaborador\Views\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="10.0.2" />
     <PackageReference Include="MySql.Data" Version="9.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="X.PagedList.Mvc.Core" Version="10.5.9" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Areas\Colaborador\Views\NewFolder\" />
   </ItemGroup>
 
   <ItemGroup>
