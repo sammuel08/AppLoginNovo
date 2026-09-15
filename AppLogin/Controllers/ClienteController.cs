@@ -1,5 +1,7 @@
 ﻿using AppLogin.Repository.Contract;
 using Microsoft.AspNetCore.Mvc;
+using AppLogin.Models;
+using AppLogin.Models.Constants;
 
 namespace AppLogin.Controllers
 {
@@ -14,6 +16,17 @@ namespace AppLogin.Controllers
         public IActionResult Index()
         {
             return View(_clienteRepository.ObterTodosClientes());
+        }
+        public IActionResult Cadastrar()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Cadastrar([FromForm] Cliente cliente)
+        {
+            cliente.Situacao = SituacaoConstant.Ativo;
+            _clienteRepository.Cadastrar(cliente);
+            return RedirectToAction(nameof(Cadastrar));
         }
     }
 }

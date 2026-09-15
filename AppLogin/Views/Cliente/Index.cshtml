@@ -1,0 +1,61 @@
+@model IEnumerable<AppLogin.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.First().Id)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.First().Nome)
+            </th>
+            @*<th scope="col">
+                @Html.DisplayNameFor(model => model.First().Nascimento)
+            </th>*@
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.First().CPF)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.First().Telefone)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.First().Email)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.First().Senha)
+            </th>
+            @* <th scope="col">
+                @Html.DisplayNameFor(model => model.First().Situacao)
+            </th> *@
+            <th scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Cliente cliente in Model)
+        {
+            <tr>
+                <th scope="row">@cliente.Id</th>
+                <td>@cliente.Nome</td>
+                <td>@cliente.CPF</td>
+                <td>@cliente.Telefone</td>
+                <td>@cliente.Email</td>
+                <td>@cliente.Senha</td>
+
+                <td>
+                    <a asp-action="GerarSenha" asp-route-id="@cliente.Id" class="btn btn-secondary">Atualizar</a>
+                    @* <a asp-action="Atualizar" asp-route-id="@cliente.Id" class="btn btn-secondary">Atualizar</a> *@
+                    <a asp-action="Excluir" asp-route-id="@cliente.Id" class="btn btn-danger">Desativar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
