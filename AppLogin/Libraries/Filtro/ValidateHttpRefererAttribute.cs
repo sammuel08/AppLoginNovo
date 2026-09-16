@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace AppLogin.Libraries.Filtro
 {
-    public class ValidateHttpRefererAttibute : Attribute, IActionFilter
+    public class ValidateHttpRefererAttribute : Attribute, IActionFilter
     {
 
         public void OnActionExecuted(ActionExecutedContext context)
