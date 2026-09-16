@@ -201,7 +201,21 @@ namespace AppLogin.Repository
             }
         }
 
+        public void Ativar(int id)
+        {
+            string Situacao = SituacaoConstant.Ativo;
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+                MySqlCommand cmd = new MySqlCommand("update Cliente set Situacao=@Situacao WHERE id=@id", conexao);
 
+                cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
+                cmd.Parameters.Add("@Situacao", MySqlDbType.VarChar).Value = Situacao;
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+
+            }
+        }
 
         public IPagedList<Cliente> ObterTodosClientes(int? pagina, string pesquisa)
         {

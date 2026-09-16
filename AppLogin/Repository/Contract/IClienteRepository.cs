@@ -13,6 +13,8 @@ namespace AppLogin.Repository.Contract
             //CRUD
             void Cadastrar(Cliente cliente);
             void Atualizar(Cliente cliente);
+            void Ativar(int id);
+             void Desativar(int id);
             void Excluir(int Id);
             Cliente ObterCliente(int Id);
             IEnumerable<Cliente> ObterTodosClientes();

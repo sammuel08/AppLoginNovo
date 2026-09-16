@@ -56,36 +56,45 @@
                                     <span asp-validation-for="CPF"></span>
                                 </div>
 
-
-            <div class="form-group">
-                <label asp-for="Telefone" class="control-label"></label>
-                <input asp-for="Telefone" class="form-control" />
-                <span asp-validation-for="Telefone" class="text-danger"></span>
+               
+            <div class="form-row">
+                 <div class="form-group col-md-6" >
+                <label asp-for="Telefone">Telefone</label>
+                <input type="text" asp-for ="Telefone" class="form-control" placeholder="" />
+                <span asp-validation-for="Telefone"></span>
+                  </div>
             </div>
 
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <label asp-for="Email" >Email</label>
+                <input type="text" asp-for="Email" class="form-control" placeholder="" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="Senha" class="control-label"></label>
-                <input asp-for="Senha" class="form-control" />
-                <span asp-validation-for="Senha" class="text-danger"></span>
+                <label asp-for="Senha">Senha</label>
+                <input class="form-control" asp-for="Senha" type="password" />
+                <span asp-validation-for="Senha" ></span>
             </div>
 
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="Situacao" class="control-label"></label>
                 <input asp-for="Situacao" class="form-control" />
                 <span asp-validation-for="Situacao" class="text-danger"></span>
-            </div>
+            </div>*@
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <button type="submit" class="btn btn-primary btn-block"> Cadastrar </button>
             </div>
-        </form>
-    </div>
-</div>
+            </article>
+                <div class="border-top card-body text-center">Já tem um conta? <a asp-action="Login" asp-controller="Home">Entre</a></div>
+           </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+   </main>
+</form>
+
 
 <div>
     <a asp-action="Index">Back to List</a>

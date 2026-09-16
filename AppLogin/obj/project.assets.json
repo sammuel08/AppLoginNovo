@@ -5706,11 +5706,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\3mtec\\Desktop\\AppLoginNovo\\AppLoginNovo\\AppLogin\\AppLogin.csproj",
+      "projectUniqueName": "C:\\Users\\3mtec\\Desktop\\AppLoginNovo\\AppLoginNovo\\AppLoginNovo\\AppLogin\\AppLogin.csproj",
       "projectName": "AppLogin",
-      "projectPath": "C:\\Users\\3mtec\\Desktop\\AppLoginNovo\\AppLoginNovo\\AppLogin\\AppLogin.csproj",
+      "projectPath": "C:\\Users\\3mtec\\Desktop\\AppLoginNovo\\AppLoginNovo\\AppLoginNovo\\AppLogin\\AppLogin.csproj",
       "packagesPath": "C:\\Users\\3mtec\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\3mtec\\Desktop\\AppLoginNovo\\AppLoginNovo\\AppLogin\\obj\\",
+      "outputPath": "C:\\Users\\3mtec\\Desktop\\AppLoginNovo\\AppLoginNovo\\AppLoginNovo\\AppLogin\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
