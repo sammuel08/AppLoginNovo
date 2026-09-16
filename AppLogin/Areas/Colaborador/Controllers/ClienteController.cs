@@ -4,7 +4,7 @@ using AppLogin.Models.Constants;
 using AppLogin.Repository.Contract;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AppLogin.Controllers
+namespace AppLogin.Areas.Colaborador.Controllers
 {
     [Area("Colaborador")]
     public class ClienteController : Controller

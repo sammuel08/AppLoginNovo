@@ -1,6 +1,7 @@
 using AppLogin.Libraries.Filtro;
 using AppLogin.Libraries.Login;
 using AppLogin.Models;
+using AppLogin.Models.Constants;
 using AppLogin.Repository.Contract;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -78,6 +79,18 @@ namespace AppLogin.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Cadastrar()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Cadastrar([FromForm] Cliente cliente)
+        {
+            cliente.Situacao = SituacaoConstant.Ativo;
+            _clienteRepository.Cadastrar(cliente);
+            return RedirectToAction(nameof(Cadastrar));
         }
     }
 }
