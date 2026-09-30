@@ -31,7 +31,7 @@ namespace AppLogin.Libraries.Filtro
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

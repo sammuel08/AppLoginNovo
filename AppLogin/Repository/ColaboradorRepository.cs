@@ -59,16 +59,15 @@ namespace AppLogin.Repository
                 conexao.Open();
 
                 MySqlCommand cmd = new MySqlCommand(
-                    "insert into Colaborador(Nome, CPF, Telefone, Email, Senha) " +
-                    "values (@Nome, @CPF, @Telefone, @Email, @Senha)",
+                    "insert into Colaborador(Nome, Email, Senha, Tipo) " +
+                    "values (@Nome, @Email, @Senha, @Tipo)",
                     conexao
                 ); // @: PARAMETRO
 
                 cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = colaborador.Nome;
-                cmd.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = colaborador.CPF;
-                cmd.Parameters.Add("@Telefone", MySqlDbType.VarChar).Value = colaborador.Telefone;
                 cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = colaborador.Email;
                 cmd.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = colaborador.Senha;
+                cmd.Parameters.Add("@Tipo", MySqlDbType.VarChar).Value = colaborador.Tipo;
 
 
                 cmd.ExecuteNonQuery();
@@ -214,7 +213,14 @@ namespace AppLogin.Repository
 
         public void Excluir(int Id)
         {
-            throw new NotImplementedException();
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+                MySqlCommand cmd = new MySqlCommand("delete from Colaborador WHERE Id=@Id", conexao);
+                cmd.Parameters.AddWithValue("@Id", Id);
+                int i = cmd.ExecuteNonQuery();
+                conexao.Close();
+            }
         }
 
 

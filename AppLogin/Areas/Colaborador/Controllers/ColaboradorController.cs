@@ -54,7 +54,6 @@ namespace AppLogin.Areas.Colaborador.Controllers
             }
             return View();
         }
-        [ValidateHttpReferer]
         public IActionResult Excluir(int id)
         {
             _colaboradorRepository.Excluir(id);
