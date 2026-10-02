@@ -11,7 +11,6 @@ CPF Varchar(11) not null,
 Telefone Varchar(14) not null,
 Email Varchar(50) not null,
 Senha varchar(8) not null,
-ConfirmacaoSenha Varchar(8) not null,
 Situacao char(1) not null);
 
 create table Colaborador(
@@ -30,4 +29,6 @@ VALUES
 INSERT INTO Colaborador
 (Nome, Email, Senha, Tipo)
 VALUES
-('Samuel', 'sammuel11@gmail.com', '12345678', 'admin');
+('Samuel', 'sammuel11@gmail.com', '12345678', 'G');
+
+select * from Colaborador;

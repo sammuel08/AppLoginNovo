@@ -43,16 +43,33 @@ namespace AppLogin.Areas.Colaborador.Controllers
             return View(colaborador);
         }
         [HttpPost]
-
         public IActionResult Atualizar([FromForm] Models.Colaborador colaborador)
         {
-            if(ModelState.IsValid)
+            ModelState.Remove(nameof(colaborador.CPF));
+            ModelState.Remove(nameof(colaborador.Tipo));
+            ModelState.Remove(nameof(colaborador.Telefone));
+
+            if (string.IsNullOrWhiteSpace(colaborador.Senha))
             {
-                _colaboradorRepository.Atualizar(colaborador);
+                ModelState.Remove(nameof(colaborador.Senha));
+            }
+
+            if (ModelState.IsValid)
+            {
+                Models.Colaborador existente = _colaboradorRepository.ObterColaborador(colaborador.Id);
+                existente.Nome = colaborador.Nome;
+                existente.Email = colaborador.Email;
+
+                if (!string.IsNullOrWhiteSpace(colaborador.Senha))
+                {
+                    existente.Senha = colaborador.Senha;
+                }
+
+                _colaboradorRepository.Atualizar(existente);
                 TempData["MSG_S"] = "Registro salvo com sucesso!";
                 return RedirectToAction(nameof(Index));
             }
-            return View();
+            return View(colaborador);
         }
         public IActionResult Excluir(int id)
         {

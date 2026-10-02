@@ -4,7 +4,7 @@
     ViewData["Title"] = "Cadastrar";
 }
 
-<h1>Cadastrar</h1>
+
 
 <h4>Cliente</h4>
 <form asp-action="Cadastrar" asp-controller="Home" method="post">
@@ -72,7 +72,7 @@
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group">                            
                 <label asp-for="Senha">Senha</label>
                 <input class="form-control" asp-for="Senha" type="password" />
                 <span asp-validation-for="Senha" ></span>
@@ -98,5 +98,5 @@
 
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar</a>
 </div>

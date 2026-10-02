@@ -1,16 +1,16 @@
 @model AppLogin.Models.Colaborador
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Atualizar";
 }
 
-<h1>Edit</h1>
+<h1>Atualizar</h1>
 
 <h4>Colaborador</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Atualizar">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
@@ -37,9 +37,7 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index" class="btn btn-info">Voltar</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

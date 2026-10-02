@@ -147,8 +147,6 @@ namespace AppLogin.Repository
         }
         public void Atualizar(Colaborador colaborador)
         {
-            string Tipo = ColaboradorTipoConstant.Comum;
-
             using (var conexao = new MySqlConnection(_conexaoMySQL))
             {
                 conexao.Open();
@@ -163,7 +161,7 @@ namespace AppLogin.Repository
                 cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = colaborador.Nome;
                 cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = colaborador.Email;
                 cmd.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = colaborador.Senha;
-                cmd.Parameters.Add("@tipo", MySqlDbType.VarChar).Value = Tipo;
+                cmd.Parameters.Add("@Tipo", MySqlDbType.VarChar).Value = colaborador.Tipo;
 
                 cmd.ExecuteNonQuery();
 
