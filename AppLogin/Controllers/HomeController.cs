@@ -5,6 +5,7 @@ using AppLogin.Models.Constants;
 using AppLogin.Repository.Contract;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace AppLogin.Controllers
 {
@@ -85,12 +86,43 @@ namespace AppLogin.Controllers
         {
             return View();
         }
+       
         [HttpPost]
         public IActionResult Cadastrar([FromForm] Cliente cliente)
         {
+            // 1. Limpa as máscaras (CPF e Telefone) antes de qualquer coisa
+            cliente.CPF = Regex.Replace(cliente.CPF ?? "", @"\D", "");
+            cliente.Telefone = Regex.Replace(cliente.Telefone ?? "", @"\D", "");
+
+            // 2. Situacao não vem do formulário: define e remove do ModelState
             cliente.Situacao = SituacaoConstant.Ativo;
+            ModelState.Remove(nameof(cliente.Situacao));
+
+            // 3. Valida primeiro
+            if (!ModelState.IsValid)
+            {
+                return View(cliente);
+            }
+
+            // 4. Verifica duplicidade
+            var CPFCad = _clienteRepository.BuscaCpfCliente(cliente.CPF).CPF;
+            var EmailExit = _clienteRepository.BuscaEmailCliente(cliente.Email).Email;
+
+            if (!string.IsNullOrWhiteSpace(CPFCad))
+            {
+                ViewData["MSG_CPF"] = "CPF já cadastrado, por favor verifique os dados digitados";
+                return View(cliente);
+            }
+
+            if (!string.IsNullOrWhiteSpace(EmailExit))
+            {
+                ViewData["MSG_Email"] = "Email já cadastrado, por favor verifique os dados digitados";
+                return View(cliente);
+            }
+
+            // 5. Salva
             _clienteRepository.Cadastrar(cliente);
-            return RedirectToAction(nameof(Cadastrar));
+            return RedirectToAction(nameof(Login));
         }
     }
 }

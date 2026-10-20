@@ -2,6 +2,7 @@
 using AppLogin.Models.Constants;
 using AppLogin.Repository.Contract;
 using Microsoft.CodeAnalysis.Elfie.Diagnostics;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using MySql.Data.MySqlClient;
 using System.Data;
 using X.PagedList;
@@ -235,6 +236,50 @@ namespace AppLogin.Repository
 public IPagedList<Cliente> ObterTodosClientes(int? pagina, string pesquisa)
         {
             throw new NotImplementedException();
+        }
+        public Cliente BuscaCpfCliente(string CPF)
+        {
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand("select CPF from Cliente WHERE CPF=@CPF", conexao);
+                cmd.Parameters.AddWithValue("@CPF", CPF);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                MySqlDataReader dr;
+
+                Cliente cliente = new Cliente();
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dr.Read())
+                {
+                    cliente.CPF = (string)dr["CPF"];
+                }
+
+                return cliente;
+            }
+        }
+
+        public Cliente BuscaEmailCliente(string Email)
+        {
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+                MySqlCommand cmd = new MySqlCommand("select Email from Cliente WHERE Email=@Email ", conexao);
+                cmd.Parameters.AddWithValue("@Email", Email);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                MySqlDataReader dr;
+
+                Cliente cliente = new Cliente();
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dr.Read())
+                {
+                    cliente.Email = (string)(dr["Email"]);
+                }
+                return cliente;
+            }
         }
     }
 }

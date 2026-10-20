@@ -19,6 +19,8 @@ namespace AppLogin.Repository.Contract
             Cliente ObterCliente(int Id);
             IEnumerable<Cliente> ObterTodosClientes();
             IPagedList<Cliente> ObterTodosClientes(int? pagina, string pesquisa);
+            Cliente BuscaCpfCliente(string CPF);
+            Cliente BuscaEmailCliente (string Email);
         
     }
 }

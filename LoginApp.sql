@@ -21,14 +21,14 @@ Senha Varchar(8) not null,
 Tipo Varchar(8) not null);
 
 INSERT INTO Cliente
-(Nome, Nascimento, Sexo, CPF, Telefone, Email, Senha, ConfirmacaoSenha, Situacao)
+(Nome, Nascimento, Sexo, CPF, Telefone, Email, Senha, Situacao)
 VALUES
 ('Sammuel', '2008-08-13', 'M', '12345678900',
-'11999999999', 'sammuel10@teste.com', '123456','123456', 'A');
+'11999999999', 'sammuel10@teste.com', '123456', 'A');
 
 INSERT INTO Colaborador
 (Nome, Email, Senha, Tipo)
 VALUES
 ('Samuel', 'sammuel11@gmail.com', '12345678', 'G');
 
-select * from Colaborador;
+select * from Cliente;
