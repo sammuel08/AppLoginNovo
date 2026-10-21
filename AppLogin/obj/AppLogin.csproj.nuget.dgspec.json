@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sammuel\\Desktop\\Nova pasta (6)\\AppLogin\\AppLogin.csproj": {}
+    "C:\\Users\\Sammuel\\Desktop\\Nova pasta (7)\\AppLogin\\AppLogin.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sammuel\\Desktop\\Nova pasta (6)\\AppLogin\\AppLogin.csproj": {
+    "C:\\Users\\Sammuel\\Desktop\\Nova pasta (7)\\AppLogin\\AppLogin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sammuel\\Desktop\\Nova pasta (6)\\AppLogin\\AppLogin.csproj",
+        "projectUniqueName": "C:\\Users\\Sammuel\\Desktop\\Nova pasta (7)\\AppLogin\\AppLogin.csproj",
         "projectName": "AppLogin",
-        "projectPath": "C:\\Users\\Sammuel\\Desktop\\Nova pasta (6)\\AppLogin\\AppLogin.csproj",
+        "projectPath": "C:\\Users\\Sammuel\\Desktop\\Nova pasta (7)\\AppLogin\\AppLogin.csproj",
         "packagesPath": "C:\\Users\\Sammuel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sammuel\\Desktop\\Nova pasta (6)\\AppLogin\\obj\\",
+        "outputPath": "C:\\Users\\Sammuel\\Desktop\\Nova pasta (7)\\AppLogin\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -64,6 +64,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.4, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[10.3.1, )"
             },
             "X.PagedList.Mvc.Core": {
               "target": "Package",

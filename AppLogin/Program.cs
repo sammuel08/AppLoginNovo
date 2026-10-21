@@ -34,7 +34,19 @@ builder.Services.AddScoped<LoginColaborador>();
 //Adicionado para manipular a Sessão
 builder.Services.AddHttpContextAccessor();
 
+//Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
+
+// Swagger
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -43,6 +55,8 @@ if (!app.Environment.IsDevelopment())
 }
 app.UseRouting();
 app.UseAuthorization();
+//Controllers MVC e API
+app.MapControllers();
 app.MapStaticAssets();
 app.UseCookiePolicy();
 app.UseSession();

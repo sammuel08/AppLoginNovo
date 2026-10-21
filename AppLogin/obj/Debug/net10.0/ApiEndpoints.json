@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "ContainingType": "AppLogin.Areas.Colaborador.Controllers.API.ClienteApiController",
+    "Method": "ListarClientes",
+    "RelativePath": "api/ClienteApi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AppLogin.Areas.Colaborador.Controllers.API.ClienteApiController",
+    "Method": "Post",
+    "RelativePath": "api/ClienteApi",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cliente",
+        "Type": "AppLogin.Models.Cliente",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
