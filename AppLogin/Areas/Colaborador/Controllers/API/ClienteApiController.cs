@@ -40,6 +40,51 @@ namespace AppLogin.Areas.Colaborador.Controllers.API
                 cliente = cliente
             });
         }
+        [HttpGet ("{id}")]
+
+        public IActionResult BuscarPorId(int id)
+        {
+            var cliente = _clienteRepository.ObterCliente(id);
+
+            if(cliente == null)
+            {
+                return NotFound(new
+                {
+                    mensagem = "Cliente não encontrado."
+                });
+            }
+             
+            return Ok(cliente);
+        }
+
+        [HttpPut ("[id]")]
+
+        public IActionResult Atualizar (int id, Cliente cliente)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var clienteExistente = _clienteRepository.ObterCliente(id);
+
+            if(clienteExistente == null )
+            {
+                return NotFound(new
+                {
+                    mensagem = "Cliente não encontrado"
+                });
+            }
+
+            cliente.Id = id;
+
+            _clienteRepository.Atualizar(cliente);
+
+            return Ok(new
+            {
+                mensagem = "Cliente Atualizado com sucesso."
+            });
+        }
        
     }
 }
