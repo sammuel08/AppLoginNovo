@@ -10,7 +10,7 @@ namespace AppLogin.Areas.Colaborador.Controllers.API
     {
         private IClienteRepository _clienteRepository;
 
-        public ClienteApiController (IClienteRepository clienteRepository)
+        public ClienteApiController(IClienteRepository clienteRepository)
         {
             _clienteRepository = clienteRepository;
         }
@@ -24,7 +24,7 @@ namespace AppLogin.Areas.Colaborador.Controllers.API
         [HttpPost]
         public IActionResult Post(Cliente cliente)
         {
-            if(cliente is null)
+            if (cliente is null)
             {
                 return BadRequest(new
                 {
@@ -40,26 +40,26 @@ namespace AppLogin.Areas.Colaborador.Controllers.API
                 cliente = cliente
             });
         }
-        [HttpGet ("{id}")]
+        [HttpGet("{id}")]
 
         public IActionResult BuscarPorId(int id)
         {
             var cliente = _clienteRepository.ObterCliente(id);
 
-            if(cliente == null)
+            if (cliente == null)
             {
                 return NotFound(new
                 {
                     mensagem = "Cliente não encontrado."
                 });
             }
-             
+
             return Ok(cliente);
         }
 
-        [HttpPut ("[id]")]
+        [HttpPut("{id}")]
 
-        public IActionResult Atualizar (int id, Cliente cliente)
+        public IActionResult Atualizar(int id, Cliente cliente)
         {
             if (!ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace AppLogin.Areas.Colaborador.Controllers.API
 
             var clienteExistente = _clienteRepository.ObterCliente(id);
 
-            if(clienteExistente == null )
+            if (clienteExistente == null)
             {
                 return NotFound(new
                 {
@@ -84,7 +84,33 @@ namespace AppLogin.Areas.Colaborador.Controllers.API
             {
                 mensagem = "Cliente Atualizado com sucesso."
             });
+
+
+
         }
-       
+
+        [HttpDelete("{id}")]
+        public IActionResult Excluir(int id)
+        {
+            var cliente = _clienteRepository.ObterCliente(id);
+
+            if (cliente == null)
+            {
+                return NotFound(new
+                {
+                    mensagem = "Cliente não encontrado."
+                });
+            }
+
+            _clienteRepository.Excluir(id);
+
+            return Ok(new
+            {
+                mensagem = "Cliente excluído com sucesso."
+            });
+        }
+
+
     }
 }
+

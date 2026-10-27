@@ -5128,3 +5128,14 @@ C:\Users\Sammuel\Desktop\Nova pasta (7)\AppLogin\obj\Debug\net10.0\refint\AppLog
 C:\Users\Sammuel\Desktop\Nova pasta (7)\AppLogin\obj\Debug\net10.0\AppLogin.pdb
 C:\Users\Sammuel\Desktop\Nova pasta (7)\AppLogin\obj\Debug\net10.0\AppLogin.genruntimeconfig.cache
 C:\Users\Sammuel\Desktop\Nova pasta (7)\AppLogin\obj\Debug\net10.0\ref\AppLogin.dll
+C:\Users\3mtec\Desktop\AppLoginNovo\AppLogin\obj\Debug\net10.0\AppLogin.csproj.AssemblyReference.cache
+C:\Users\3mtec\Desktop\AppLoginNovo\AppLogin\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\3mtec\Desktop\AppLoginNovo\AppLogin\obj\Debug\net10.0\AppLogin.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\3mtec\Desktop\AppLoginNovo\AppLogin\obj\Debug\net10.0\AppLogin.AssemblyInfoInputs.cache
+C:\Users\3mtec\Desktop\AppLoginNovo\AppLogin\obj\Debug\net10.0\AppLogin.AssemblyInfo.cs
+C:\Users\3mtec\Desktop\AppLoginNovo\AppLogin\obj\Debug\net10.0\AppLogin.csproj.CoreCompileInputs.cache
+C:\Users\3mtec\Desktop\AppLoginNovo\AppLogin\obj\Debug\net10.0\AppLogin.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\3mtec\Desktop\AppLoginNovo\AppLogin\obj\Debug\net10.0\AppLogin.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\3mtec\Desktop\AppLoginNovo\AppLogin\obj\Debug\net10.0\AppLogin.RazorAssemblyInfo.cache
+C:\Users\3mtec\Desktop\AppLoginNovo\AppLogin\obj\Debug\net10.0\AppLogin.RazorAssemblyInfo.cs
+C:\Users\3mtec\Desktop\AppLoginNovo\AppLogin\obj\Debug\net10.0\AppLogin.sourcelink.json
